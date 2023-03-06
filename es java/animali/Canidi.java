@@ -22,4 +22,5 @@ public class Canidi {
             System.out.println(animale.getNome());
         }
     }
+
 }
