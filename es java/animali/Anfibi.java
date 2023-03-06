@@ -8,9 +8,7 @@ public class Anfibi {
     public Anfibi(){
 
     }
-    public void addAnimal(Animale pet){
-        this.arrayAnfibi.add(pet);
-    }
+  
     public ArrayList<Animale> getArrayAnfibi() {
         return arrayAnfibi;
     }
@@ -21,5 +19,8 @@ public class Anfibi {
         for (Animale animale : arrayAnfibi) {
             System.out.println(animale.getNome());
         }
+    }  
+    public void addAnimal(Animale pet){
+        this.arrayAnfibi.add(pet);
     }
 }
