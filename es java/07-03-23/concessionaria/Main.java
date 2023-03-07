@@ -36,7 +36,7 @@ public class Main {
             if (choiseUser == 0) {
                 System.out.println("Crea una macchina");
                 Auto mac = new Auto(requestInputString("Marca"), requestInputString("Modello"), requestInputInt("Anno Fabbricazione"), requestInputInt("Numero Porte"),
-                requestInputString("Tipo Carburante"), requestInputInt("Litri per 100km"));
+                requestInputString("Tipo Carburante"), requestInputInt("Consumo per 100km"));
                 
                 arrayAuto.add(mac);
                 System.out.println("Hai creato un Auto");
