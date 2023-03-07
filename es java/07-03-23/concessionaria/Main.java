@@ -30,9 +30,11 @@ public class Main {
         for (int i = 0; i < typeMoto.length; i++) {
             allTypeMoto+=(i==0?"":", ")+i+" "+typeMoto[i].toUpperCase();
         }
+        //avvio programma
         do {
             int choiseUser = requestInput("Vuoi creae un Auto o una moto? 0 o 1, 2 esci", 3);
             flagChoiseUser = choiseUser < 2;
+            //crea macchina
             if (choiseUser == 0) {
                 System.out.println("Crea una macchina");
                 Auto mac = new Auto(requestInputString("Marca"), requestInputString("Modello"), requestInputInt("Anno Fabbricazione"), requestInputInt("Numero Porte"),
@@ -42,6 +44,7 @@ public class Main {
                 System.out.println("Hai creato un Auto");
                 mac.stampaMacchina();
             }
+            //crea moto
             if (choiseUser == 1) {
                 System.out.println("Crea una moto");
                 Moto moto = new Moto(requestInputString("Marca"), requestInputString("Modello"), requestInputInt("Anno Fabbricazione"), requestInputInt("Cilindrata"),
@@ -55,7 +58,7 @@ public class Main {
                 System.out.println("Ciao amico");
             }
         } while (flagChoiseUser);
-
+        //stampa veicoli
         System.out.println("Tutte le nostre Moto".toUpperCase());
         for (Moto moto : arrayMoto) {
             moto.stampaMoto();
@@ -69,7 +72,7 @@ public class Main {
         }
         
     }
-
+    //input per i cicli
     public static int requestInput(String request, int choiseMax) {
         Scanner nScan = new Scanner(System.in);
         Boolean flagChoise = false;
@@ -81,6 +84,7 @@ public class Main {
         } while (!flagChoise);
         return inputNumber;
     }
+    //input int
     public static int requestInputInt(String request) {
         Scanner nScan = new Scanner(System.in);
         int inputNumber = 0;
@@ -88,6 +92,7 @@ public class Main {
             inputNumber = nScan.nextInt();
         return inputNumber;
     }
+    //input string
     public static String requestInputString(String request) {
         Scanner sScan = new Scanner(System.in);
         String inputString;
