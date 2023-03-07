@@ -28,7 +28,7 @@ public class Main {
         String allTypeMoto ="Scegli il tipo di moto: ";
         String[] typeMoto  = {"sportiva","strada","cross"};
         for (int i = 0; i < typeMoto.length; i++) {
-            allTypeMoto+=(i==0?" ":", ")+i+" "+typeMoto[i];
+            allTypeMoto+=(i==0?"":", ")+i+" "+typeMoto[i].toUpperCase();
         }
         do {
             int choiseUser = requestInput("Vuoi creae un Auto o una moto? 0 o 1, 2 esci", 3);
@@ -37,6 +37,7 @@ public class Main {
                 System.out.println("Crea una macchina");
                 Auto mac = new Auto(requestInputString("Marca"), requestInputString("Modello"), requestInputInt("Anno Fabbricazione"), requestInputInt("Numero Porte"),
                 requestInputString("Tipo Carburante"), requestInputInt("Litri per 100km"));
+                
                 arrayAuto.add(mac);
                 System.out.println("Hai creato un Auto");
                 mac.stampaMacchina();
@@ -55,14 +56,16 @@ public class Main {
             }
         } while (flagChoiseUser);
 
-        System.out.println("Tutte le nostre Moto");
+        System.out.println("Tutte le nostre Moto".toUpperCase());
         for (Moto moto : arrayMoto) {
             moto.stampaMoto();
+            System.out.println();
         }
 
-        System.out.println("Tutte le nostre Auto");
+        System.out.println("Tutte le nostre Auto".toUpperCase());
         for (Auto mac : arrayAuto) {
             mac.stampaMacchina();
+            System.out.println();
         }
         
     }
