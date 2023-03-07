@@ -1,0 +1,6 @@
+Creare una view di city del database world su una query che mostra le città italiane. 
+Su questa VIEW eseguire una query che mostra solo le città con una popolazione inferiore ai 100k.
+Create View cityView
+Select city.name,city popolazione
+From world
+Where city.name=="Italia"  AND city.popolazione >100k 
