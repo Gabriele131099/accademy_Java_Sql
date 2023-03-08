@@ -25,10 +25,11 @@ public class add {
                 // Chiedi all'utente di inserire il nome della città da aggiungere
                 System.out.println("Inserisci il nome della città:");
                 String nomeCitta = scanner.nextLine();
+                 // Chiedi all'utente di inserire La regione della città da aggiungere
                 System.out.println("Inserisci la regione della città:");
                 String nomeRegione = scanner.nextLine();
 
-                // chech citta esiste
+                // check citta esiste
                 boolean flagCheckSiti = false;
                 rs.beforeFirst();
                 while (rs.next()) {
@@ -54,7 +55,19 @@ public class add {
 
                     System.out.println("La città è stata aggiunta in locale.");
                 }
-                // aggiunge tutte le città
+                
+                
+                System.out.println("Vuoi inserire un'altra città? (s/n)");
+                String risposta2 = risposta.nextLine().toLowerCase();
+                if (!risposta2.equals("s")) {
+                    break;
+                }
+            }
+           //conferma
+                System.out.println("Vuoi inserire le citta? (s/n)");
+                String risposta3 = risposta.nextLine().toLowerCase();
+                if (risposta3.equals("s")) {
+                    // aggiunge tutte le città
                 for (City city : arrayCity) {
                     rs.moveToInsertRow();
                     rs.updateString("Name", city.getName());
@@ -65,14 +78,9 @@ public class add {
                     rs.moveToCurrentRow();
                     System.out.println(city.Name + " Aggiunta al db");
                 }
-                System.out.println("Vuoi inserire un'altra città? (s/n)");
-                String risposta2 = risposta.nextLine().toLowerCase();
-                if (!risposta2.equals("s")) {
-                    break;
-                }
+            }else{
+                System.out.println("Inserimento annullato");
             }
-
-            // Chiudi la connessione al database
             conn.close();
             fibonacci.main(args);
         } catch (SQLException e) {
