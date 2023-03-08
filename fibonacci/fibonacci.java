@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 
 public class fibonacci {
     static ArrayList<Integer> numsGenerated = new ArrayList<Integer>();
@@ -24,7 +26,7 @@ public class fibonacci {
                     searchNumberInSequence();
                     break;
                 case 3:
-                    connection();
+                    connectionView();
                     break;
                 case 4:
 
@@ -124,7 +126,7 @@ public class fibonacci {
             Statement stm = conn.createStatement();
             int choiseQuery = requestInput("Scegli una query casualmente, inserisci un numero fra 0 e 4", 4);
             String query = returnChoiseQuery(choiseQuery);
-            ResultSet rs = stm.executeQuery(query);
+            ResultSet rs = stm.executeQuery("Select city.name,city popolazione From world Where city.name=='Italia'  AND city.popolazione >100k ");
             while (rs.next()) {
                 String stringa = String.format("ID: %d; Name: %s;  ",
                         rs.getInt(1),
@@ -140,19 +142,22 @@ public class fibonacci {
         String s = "";
         switch (choise) {
             case 0:
-                query1();
+                s = query1();
                 break;
             case 1:
-                query2();
+                s = query2();
                 break;
             case 2:
-                query3();
+                s = query3();
                 break;
             case 3:
-                query4();
+                s = query4();
                 break;
             case 4:
-                query5();
+                s = query5();
+                break;
+            case 5:
+                s = query6();
                 break;
             default:
                 break;
@@ -192,5 +197,46 @@ public class fibonacci {
         System.out.println(
                 "Creare una view di city del database world su una query che mostra le città italiane. Su questa VIEW eseguire una query che mostra solo le città con una popolazione inferiore ai 100k.");
         return "Create View cityView Select city.name,city popolazione From world Where city.name=='Italia'  AND city.popolazione >100k ";
+    }
+
+    public static String query6() {
+        // view
+        System.out.println("mostra la view");
+        return "SELECT * FROM cityViewita ";
+    }
+    public static void connectionView() {
+        try {
+            // Stabilisce la connessione al database
+            Connection conn = DriverManager.getConnection(
+               "jdbc:mysql://localhost:3306/world", "root", "Vivident.root");
+   
+            // Crea uno statement
+            Statement stmt = conn.createStatement();
+            // String query = "SELECT * FROM cityViewita ";
+            int choiseQuery = requestInput("Scegli una query casualmente, inserisci un numero fra 0 e 5", 5);
+            //Fa la query
+            ResultSet rs = stmt.executeQuery(returnChoiseQuery(choiseQuery));
+   
+            // Recupera i metadati dalla vista
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int numColumns = rsmd.getColumnCount();
+   
+            // Stampa i dati della vista
+            while (rs.next()) {
+               for (int i = 1; i <= numColumns; i++) {
+                  Object value = rs.getObject(i);
+                  String columnName = rsmd.getColumnName(i);
+                  String columnType = rsmd.getColumnTypeName(i);
+                  System.out.println(columnName + " (" + columnType + "): " + value);
+               }
+               System.out.println();
+            }
+   
+            // Chiude la connessione
+            conn.close();
+         } catch (SQLException e) {
+            //errore
+            e.printStackTrace();
+         }
     }
 }
