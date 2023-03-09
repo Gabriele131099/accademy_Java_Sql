@@ -65,17 +65,21 @@ public class Main {
     public static int checkNumber() {
         Scanner nScan = new Scanner(System.in);
         int num = 0;
-        boolean flagCheck = false;
-        do {
-            try {
-                System.out.println("Inserisci un numero");
-                num = nScan.nextInt();
-                flagCheck = true;
-            } catch (Exception e) {
-                flagCheck = false;
-                System.out.println(e);
-            }
-        } while (!flagCheck);
-        return num;
-    }
+        boolean flagCheck = true;
+
+            do {
+                try {
+                    System.out.println("Inserisci un numero");
+                    num = nScan.nextInt();
+                    flagCheck = false;
+                } catch (Exception e) {
+                    flagCheck = true;                
+                    System.out.println("Il carattere inserito ha valore "+0);
+                }
+               
+            } while (!flagCheck);
+
+            return num;
+       
+    }    
 }
