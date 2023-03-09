@@ -76,11 +76,13 @@ public class Main {
                     flagCheck = true;  
                     num = 0;              
                     System.out.println("Il carattere inserito ha valore "+0);
+                    continue;
                 }
                
             } while (!flagCheck);
 
             return num;
+        
        
     }    
 }
