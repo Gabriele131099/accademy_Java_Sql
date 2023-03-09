@@ -73,7 +73,8 @@ public class Main {
                     num = nScan.nextInt();
                     flagCheck = false;
                 } catch (Exception e) {
-                    flagCheck = true;                
+                    flagCheck = true;  
+                    num = 0;              
                     System.out.println("Il carattere inserito ha valore "+0);
                 }
                
