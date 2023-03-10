@@ -15,11 +15,11 @@ public class Main {
 
             do {
                 System.out.println("1 Somma, 2 Divisione, 3 Moltiplicazione, 4 sottrazione, 5 Esci");
-                choise = checkNumber();
+                choise = insertNum();
                 if (flagChoise) {
                     System.out.println("SCEGLI I DUE NUMERI");
-                    int num1 = checkNumber();
-                    int num2 = checkNumber();
+                    int num1 = insertNum();
+                    int num2 = insertNum();
                     System.out.println("Numeri inseriti");
                     calc.setNum1(num1);
                     calc.setNum2(num2);
@@ -61,7 +61,28 @@ public class Main {
         }
 
     }
-
+    public static int insertNum() { 
+        Scanner nScan = new Scanner(System.in);
+        boolean flagErrore = true;
+        int num = 0;
+        do {
+            try {
+                num = nScan.nextInt();
+                flagErrore = false;
+                break;
+            } catch (Exception e) {
+                nScan.nextLine();
+                flagErrore = true;
+                continue;
+            } finally {
+                if (flagErrore)
+                    System.out.println("Hai sbagliato, Riprova");
+                else
+                    System.out.println("inserito");
+            }
+        } while (flagErrore);
+        return num;
+    }
     public static int checkNumber() {
         Scanner nScan = new Scanner(System.in);
         int num = 0;
