@@ -1,0 +1,29 @@
+andiamo a creare un programma per la gestione di un'azienda di trasporto aereo, 
+in cui ogni aereo ha un nome, un numero di posti a sedere e una capacità di carico. 
+Inoltre, ci sono due tipi di aerei: aerei passeggeri e aerei cargo.                                                                  W
+
+Crea una classe Airplane che incapsula i campi nome, posti a sedere e capacità di carico, 
+e che fornisce i metodi getter e setter per questi campi.                                                                   W
+
+Crea due sottoclassi della classe Airplane: PassengerPlane e CargoPlane. 
+La classe PassengerPlane dove avere un campo aggiuntivo che rappresenta il numero di servizi di bordo disponibili, 
+mentre la classe CargoPlane dovrebbe avere un campo aggiuntivo che rappresenta la capacità di carico massima .                          W
+
+Per ogni sottoclasse, definisci un costruttore che accetta i valori per tutti i campi, inclusi quelli ereditati dalla classe Airplane. W
+
+Implementa il metodo toString() per ogni classe, in modo da restituire una rappresentazione testuale dell'aereo.W
+
+Crea una classe Airline che incapsula un elenco di aerei e fornisce metodi per aggiungere e rimuovere aerei dall'elenco. W
+
+Crea un metodo nella classe Airline che calcola la capacità totale di carico degli aerei presenti nell'elenco.
+
+Crea un altro metodo nella classe Airline che restituisce un elenco di tutti gli aerei con un determinato numero di posti a sedere.
+
+Crea un altro metodo nella classe Airline che restituisce un elenco di tutti gli aerei cargo con una capacità di carico massima per 
+singolo collo maggiore di un determinato valore.
+
+Crea una classe di test che crea un'istanza della classe Airline, aggiunge alcuni aerei all'elenco e invoca i metodi per calcolare 
+la capacità totale di carico degli aerei, recuperare un elenco di aerei con un determinato numero di posti a sedere e recuperare un 
+elenco di aerei cargo con una capacità di carico massima per singolo capacità di peso maggiore di un determinato valore.
+
+Crea un metodo nella classe Airline in modo da restituire una rappresentazione testuale dell'elenco degli aerei
