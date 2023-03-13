@@ -1,0 +1,27 @@
+// a) Creare uno schema relazionale che rappresenta gli autori e i vari romanzi scritti.
+// Per ogni autore deve essere indicato: nome(P.K.), l’anno di nascita, l’anno morte(se è deceduto) e la nazione.
+// Per ogni libro deve essere indicato: il titolo del libro, l’autore(F.K.) e l’anno di pubblicazione.
+// Nelle note deve essere specificato per ogni colonna il tipo di dato e il vincolo attribuito o come deve essere gestito.
+// Tabella autore(
+    //     ID* Chat(30) not null
+    //     Nome Char(30) not null
+    //     Anno_nascita date not null 
+    //     Anno_morte date
+    //     Nazione Char (50) not null
+// )
+// Tabella libro(
+    //     ID*  Chat(30) not null 
+    //     Titolo char(100) not null
+    //     Autore_uid** chat(30) REFERENCES autore(ID) not null
+    //     Anno_pubblicazione date not null
+// )
+
+
+// b) Sfruttando JDBC creare uno script JAVA che vada a creare il database “biblioteca” inserendo le 
+tabelle con i vincoli recuperati dallo schema relazionale creato in precedenza nel punto a. //Main
+
+// c) Una volta creato il database, creare uno script JAVA che permette all’utente:
+// di inserire nuovi autori e nuovi libri se l’autore è presente (è obbligatorio utilizzare i metodi della classe ResultSet); //addAutore e addLibro
+// di stampare tutti gli autori; //show data
+// di stampare i libri di un autore. ((show data
+
