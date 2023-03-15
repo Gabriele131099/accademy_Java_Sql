@@ -19,12 +19,12 @@ abstract class ForzeSpeciali {
         return grado;
     }
 
-    public void Annodiinizio() {
+    public String Annodiinizio() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("da quanti anni sei nell esercito");
         int anniServizio = scanner.nextInt();
         String grado = specializzazione(GradiSpeciali(anniServizio));
-
+        return grado;
     }
 
     public String specializzazione(String s) {
@@ -60,21 +60,17 @@ public class Esercito {
         private String nome;
         private int AnnodiNascita;
         private Boolean forzeSpeciali = false;
-
+        private String grado = "Recluta";
         Soldato(String nome, int annoNascita, boolean apeciale) {
             this.nome = nome;
             this.AnnodiNascita = annoNascita;
             this.forzeSpeciali = apeciale;
-            if (apeciale) {
-                Annodiinizio();
+            if (apeciale && (2023-this.AnnodiNascita)>18) {
+               this.grado = Annodiinizio();
             } else {
                 System.out.println("Sei una recluta");
             }
-
         }
-
-        
-
         public String getNome() {
             return nome;
         }
@@ -98,6 +94,9 @@ public class Esercito {
         public void setForzeSpeciali(Boolean forzeSpeciali) {
             this.forzeSpeciali = forzeSpeciali;
         }
+        public String getGrado() {
+            return grado;
+        }
     }
 
     public static void main(String[] args) {
@@ -116,12 +115,23 @@ public class Esercito {
                     System.out.println("Vuoi aggiungere un soldato? 1 o 2");
                     int choise = nscan.nextInt();
                     flagSoldato = choise == 1;
+                    int anno;
                     if (flagSoldato) {
                         System.out.println("Inserisci il nome del soldato");
                         String nometmp = sscan.nextLine();
+                        boolean flagAnni =false;
+                       do {
                         System.out.println("Inserire l'anno di nascita");
-                        int anno = nscan.nextInt();
-
+                         anno = nscan.nextInt();
+                        flagAnni= (2023-anno)>18 && anno>1900;
+                        if ((2023-anno)<18) {
+                            System.out.println("Sei minorenne");
+                        }
+                        if (anno>1900) {
+                            System.out.println("Non sapevo fossi vivo");
+                        }
+                       } while (!flagAnni);
+                       
                         System.out.println("Fai parte delle forze speciali? 1 o 2");
                         Boolean flagForzeSpeciali = nscan.nextInt() == 1;
                         boolean flagConfirmData = false;
