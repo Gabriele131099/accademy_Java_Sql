@@ -123,7 +123,7 @@ public class Esercito {
                        do {
                         System.out.println("Inserire l'anno di nascita");
                          anno = nscan.nextInt();
-                        flagAnni= (2023-anno)>18 && anno>1900;
+                        flagAnni= (2023-anno)>=18 && anno>1900;
                         if ((2023-anno)<18) {
                             System.out.println("Sei minorenne");
                         }
