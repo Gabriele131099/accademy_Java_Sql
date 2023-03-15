@@ -127,7 +127,7 @@ public class Esercito {
                         if ((2023-anno)<18) {
                             System.out.println("Sei minorenne");
                         }
-                        if (anno>1900) {
+                        if (anno<=1900) {
                             System.out.println("Non sapevo fossi vivo");
                         }
                        } while (!flagAnni);
@@ -142,6 +142,7 @@ public class Esercito {
                             System.out.println("Il soldato è stato aggiunto, " + soldato.getNome());
                             esercito.addSoldati(soldato);
                             esercito.setnSoldati(esercito.getSoldati().size());
+                            System.out.println("Ci sono "+esercito.getnSoldati()+" soldati");
                         } else {
                             System.out.println("Dati annullati");
                         }
